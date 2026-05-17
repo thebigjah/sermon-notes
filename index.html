@@ -253,10 +253,12 @@
     <input type="date" id="n-date">
 
     <label for="n-church">Church</label>
-    <input type="text" id="n-church" placeholder="e.g., Stonebridge / Kennesaw First Baptist">
+    <input type="text" id="n-church" placeholder="e.g., Stonebridge / Kennesaw First Baptist" list="church-list">
+    <datalist id="church-list"></datalist>
 
     <label for="n-preacher">Preacher</label>
-    <input type="text" id="n-preacher" placeholder="e.g., Pastor Matt">
+    <input type="text" id="n-preacher" placeholder="e.g., Pastor Matt" list="preacher-list">
+    <datalist id="preacher-list"></datalist>
 
     <label for="n-title">Title or theme</label>
     <input type="text" id="n-title" placeholder="e.g., What grace really costs">
@@ -359,6 +361,11 @@ function initNew() {
     const last = sermons[sermons.length - 1];
     if (last.church) document.getElementById('n-church').value = last.church;
   }
+  // Populate autocomplete datalists with seen values
+  const churches = [...new Set(sermons.map(s => s.church).filter(Boolean))].sort();
+  const preachers = [...new Set(sermons.map(s => s.preacher).filter(Boolean))].sort();
+  document.getElementById('church-list').innerHTML = churches.map(c => `<option value="${escapeHtml(c)}">`).join('');
+  document.getElementById('preacher-list').innerHTML = preachers.map(p => `<option value="${escapeHtml(p)}">`).join('');
 }
 
 function saveSermon() {
