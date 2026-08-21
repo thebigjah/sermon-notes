@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sermon Notes, take it Sunday, remember it Friday | Elijah Purcell</title>
 <meta name="description" content="Sunday sermon notes that survive the week: passage, points, application, searchable across years. By Elijah Purcell, Purcell Ventures LLC.">
-<meta property="og:title" content="Sermon Notes — take it Sunday, remember it Friday">
+<meta property="og:title" content="Sermon Notes, take it Sunday, remember it Friday">
 <meta property="og:description" content="Sunday sermon notes that survive the week: passage, points, application, searchable across years. By Elijah Purcell, Purcell Ventures LLC.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +69,7 @@
   }
   .container { max-width: 680px; margin: 0 auto; position: relative; z-index: 2; }
 
-  /* HEADER — bulletin cover */
+  /* HEADER, bulletin cover */
   header {
     text-align: center;
     padding: 32px 0 24px;
@@ -382,7 +382,7 @@
 <div id="view-new" class="view">
   <div class="panel">
     <h2>Today's sermon</h2>
-    <p class="help">Date defaults to today. Fill in what serves you — empty fields are skipped.</p>
+    <p class="help">Date defaults to today. Fill in what serves you, empty fields are skipped.</p>
 
     <label for="n-date">Date</label>
     <input type="date" id="n-date">
@@ -404,7 +404,7 @@
     <label for="n-keypoints">Key points</label>
     <textarea id="n-keypoints" placeholder="The main ideas the preacher made. Bullet style is fine."></textarea>
 
-    <label for="n-application">Application — what this means I do Monday</label>
+    <label for="n-application">Application, what this means I do Monday</label>
     <textarea id="n-application" placeholder="Specifics. 'Stop X.' 'Call so-and-so.' 'Read this passage daily this week.'"></textarea>
 
     <label for="n-questions">Questions I want to follow up on</label>
@@ -460,7 +460,7 @@
   <p>No cloud. No reminders.<br>
   <a href="https://github.com/thebigjah/sermon-notes">github.com/thebigjah/sermon-notes</a>
   </p>
-  <div class="credit">— PURCELLVENTURES.CO —</div>
+  <div class="credit">, PURCELLVENTURES.CO,</div>
 </footer>
 
 </div>
@@ -644,7 +644,7 @@ function exportMarkdown() {
   const sorted = [...sermons].sort((a, b) => a.date.localeCompare(b.date));
   let md = '# Sermon notes\n\nExported ' + new Date().toISOString().split('T')[0] + '\n\n';
   sorted.forEach(s => {
-    md += `\n## ${fmtDate(s.date)} — ${s.title || '(untitled)'}\n\n`;
+    md += `\n## ${fmtDate(s.date)}, ${s.title || '(untitled)'}\n\n`;
     if (s.church) md += `**Church:** ${s.church}  \n`;
     if (s.preacher) md += `**Preacher:** ${s.preacher}  \n`;
     if (s.passages) md += `**Passages:** ${s.passages}  \n`;
